@@ -20,6 +20,7 @@ class game: UIViewController {
     @IBOutlet weak var eightOutlet: UIButton!
     @IBOutlet weak var nineOutlet: UIButton!
     @IBOutlet weak var resetOutlet: UIButton!
+    @IBOutlet weak var backOutlet: UIButton!
     
     let ticTac = Tictac()
     var turn = 0
@@ -29,6 +30,8 @@ class game: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetOutlet.layer.cornerRadius = 15
+        backOutlet.layer.cornerRadius = 15
         // Do any additional setup after loading the view.
     }
     

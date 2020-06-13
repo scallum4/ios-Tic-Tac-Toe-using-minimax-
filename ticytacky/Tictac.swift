@@ -11,7 +11,6 @@ import Foundation
 class Tictac{
     var turn = true;
     var board: [[Int]] = [[0,0,0], [0,0,0], [0,0,0]]
-        
     
     init(){
     }
@@ -99,14 +98,13 @@ class Tictac{
         var bestMoveX = -1
         var bestMoveY = -1
         var bestResult = -10000
-        var boord = board
         for x in 0...2{
             for y in 0...2{
                 if(board[x][y] == 0){
-                    var boord = board
-                    boord[x][y] = 2
-                    let result = compLogic(newBoard: boord, player: false)
-                    boord[x][y] = 0
+                    var tempBoard = board
+                    tempBoard[x][y] = 2
+                    let result = compLogic(newBoard: tempBoard, player: false)
+                    tempBoard[x][y] = 0
                     if(result > bestResult){
                         bestResult = result
                         bestMoveX = x
@@ -125,7 +123,7 @@ class Tictac{
     func compLogic(newBoard: [[Int]], player: Bool) -> Int{
         var tempBoard = newBoard
         var bestScore = 0
-        var winner = isEnd(forBoard: tempBoard)
+        let winner = isEnd(forBoard: tempBoard)
         if(winner == 2){
             return 10
         } else if(winner == 1){

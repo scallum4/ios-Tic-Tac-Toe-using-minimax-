@@ -12,6 +12,12 @@ class Tictac{
     var turn = true;
     var board: [[Int]] = [[0,0,0], [0,0,0], [0,0,0]]
     
+    struct bestChoice{
+        var score = 0
+        var xPos = -1
+        var yPos = -1
+    }
+    
     init(){
     }
     
@@ -94,63 +100,51 @@ class Tictac{
     }
     
     func compsTurn() -> [Int]{
-        var bestMoveX = -1
-        var bestMoveY = -1
-        var bestResult = -10000
-        for x in 0...2{
-            for y in 0...2{
-                if(board[x][y] == 0){
-                    var tempBoard = board
-                    tempBoard[x][y] = 2
-                    let result = compLogic(newBoard: tempBoard, player: false)
-                    tempBoard[x][y] = 0
-                    if(result > bestResult){
-                        bestResult = result
-                        bestMoveX = x
-                        bestMoveY = y
-                    }
-                }
-            }
-        }
-        board[bestMoveX][bestMoveY] = 2
+        let result = compLogic(newBoard: board, compsTurn: true)
+        board[result.xPos][result.yPos] = 2
         turn = !turn
-        return [bestMoveX, bestMoveY]
+        return [result.xPos, result.yPos]
     }
     
     //make it so that it returns an array [Score, xpos, ypos] ????
     
-    func compLogic(newBoard: [[Int]], player: Bool) -> Int{
+    func compLogic(newBoard: [[Int]], compsTurn: Bool) -> bestChoice{
         var tempBoard = newBoard
-        var bestScore = 0
-        let winner = isEnd(forBoard: tempBoard)
-        if(winner == 2){
-            return 10
-        } else if(winner == 1){
-            return -10
-        } else if(winner == 0){
-            return 0
+        var result = bestChoice()
+        switch isEnd(forBoard: tempBoard){
+        case 0:
+            result.score = 0
+            return result
+        case 1:
+            result.score = -10
+            return result
+        case 2:
+            result.score = 10
+            return result
+        default:
+            break
         }
         
-        if(player){
-            bestScore = -1000
-        } else{
-            bestScore = 1000
+        if(compsTurn){
+            result.score = -1000
+        }else {
+            result.score = 1000
         }
+        
         for x in 0...2{
             for y in 0...2{
                 if tempBoard[x][y] == 0{
-                    tempBoard[x][y] = turnAsNum(input: player)
-                    let score = compLogic(newBoard: tempBoard, player: !player)
+                    tempBoard[x][y] = turnAsNum(input: compsTurn)
+                    let choice = compLogic(newBoard: tempBoard, compsTurn: !compsTurn)
                     tempBoard[x][y] = 0
-                    if player && score > bestScore{
-                        bestScore = score
-                    }else if !player && score < bestScore{
-                        bestScore = score
+                    if compsTurn && choice.score > result.score || !compsTurn && choice.score < result.score{
+                        result.score = choice.score
+                        result.xPos = x
+                        result.yPos = y
                     }
                 }
             }
         }
-        return bestScore
-         
+        return result
     }
 }

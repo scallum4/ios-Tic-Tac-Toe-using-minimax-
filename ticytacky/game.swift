@@ -91,101 +91,56 @@ class game: UIViewController {
     }
     
     @IBAction func one(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 0, y: 0)
-            if(turn == 1){
-                oneOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                oneOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 0, y: 0)){
+            oneOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func two(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 0, y: 1)
-            if(turn == 1){
-                twoOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                twoOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 0, y: 1)){
+            twoOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func three(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 0, y: 2)
-            if(turn == 1){
-                threeOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                threeOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 0, y: 2)){
+            threeOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func four(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 1, y: 0)
-            if(turn == 1){
-                fourOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                fourOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 1, y: 0)){
+            fourOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func five(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 1, y: 1)
-            if(turn == 1){
-                fiveOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                fiveOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 1, y: 1)){
+            fiveOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func six(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 1, y: 2)
-            if(turn == 1){
-                sixOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                sixOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 1, y: 2)){
+            sixOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func seven(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 2, y: 0)
-            if(turn == 1){
-                sevenOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                sevenOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 2, y: 0)){
+            sevenOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func eight(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 2, y: 1)
-            if(turn == 1){
-                eightOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                eightOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 2, y: 1)){
+            eightOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }
     @IBAction func nine(_ sender: Any) {
-        if(active){
-            turn = ticTac.turnTaken(x: 2, y: 2)
-            if(turn == 1){
-                nineOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
-            } else if(turn == 2){
-                nineOutlet.setImage(UIImage(named: "cross.png"), for: .normal)
-            }
+        if(active && ticTac.turnTaken(x: 2, y: 2)){
+            nineOutlet.setImage(UIImage(named: "naught.png"), for: .normal)
             turnEnd()
         }
     }

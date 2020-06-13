@@ -79,14 +79,13 @@ class Tictac{
         return -1
     }
     
-    func turnTaken(x: Int, y: Int) -> Int{
+    func turnTaken(x: Int, y: Int) -> Bool{
         if(!isAvalible(x: x, y: y)){
-            return 0
+            return false
         }
         board[x][y] = 1
         turn = !turn
-        print("done")
-        return board[x][y]
+        return true
     }
     
     func reset(){
